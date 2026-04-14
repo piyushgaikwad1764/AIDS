@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv(r"C:\Users\omman\Downloads\archive\shopping_trends.csv")
+
+print(df.columns, df.shape, df.head(), sep="\n\n")
+
+cat = df.groupby("Category")["Purchase Amount (USD)"].sum()
+season = df.groupby("Season")["Purchase Amount (USD)"].sum()
+gender=df.groupby("Gender")["Purchase Amount (USD)"].sum()
+
+plt.figure()
+cat.plot(kind="bar", title="Category-wise Spend (₹)")
+plt.ylabel("Amount (₹)")
+plt.show()
+
+plt.figure()
+plt.hist(df["Purchase Amount (USD)"], bins=10)
+plt.title("Purchase Distribution (₹)")
+plt.show()
+
+plt.figure()
+season.plot(marker="o", title="Seasonal Spend (₹)")
+plt.ylabel("Amount (₹)")
+plt.show()
