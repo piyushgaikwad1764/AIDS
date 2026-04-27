@@ -1,0 +1,36 @@
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+data = pd.read_csv("cleaned_data.csv")
+
+
+print(data.head())
+
+
+print(data.describe())
+
+
+print(data.isnull().sum())
+
+
+data.hist()
+plt.show()
+
+
+sns.heatmap(data.corr(), annot=True)
+plt.show()
+
+plt.scatter(data["Age"], data["Salary"])
+plt.xlabel("Age")
+plt.ylabel("Salary")
+plt.title("Scatter Plot")
+plt.show()
+
+
+plt.boxplot(data["Age"])
+plt.title("Box Plot of Age")
+plt.show()
