@@ -1,0 +1,19 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.datasets import load_iris
+iris=load_iris()
+
+df=pd.DataFrame(iris.data,columns=iris.feature_names)
+
+correlation_matrix=df.corr()
+plt.figure(figsize=(8,6))
+sns.heatmap(correlation_matrix,annot=True,cmap='coolwarm')
+plt.title("Correlation Matrix of IRIS dataset")
+plt.show()
+
+covariance_matrix=df.cov()
+plt.figure(figsize=(8,6))
+sns.heatmap(covariance_matrix,annot=True,cmap='viridis')
+plt.title("Covariance Matrix of IRIS dataset")
+plt.show()
