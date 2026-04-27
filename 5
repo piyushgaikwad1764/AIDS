@@ -1,0 +1,49 @@
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+df = pd.read_csv("customers.csv")
+
+
+print("First 5 Rows of Dataset:")
+print(df.head())
+
+print("\nDataset Info:")
+print(df.info())
+
+print("\nStatistical Summary:")
+print(df.describe())
+
+
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+
+plt.hist(df["Age"])
+plt.title("Age Distribution")
+plt.xlabel("Age")
+plt.ylabel("Count")
+plt.show()
+
+
+plt.hist(df["Annual Income (k$)"])
+plt.title("Annual Income Distribution")
+plt.xlabel("Income")
+plt.ylabel("Count")
+plt.show()
+
+
+plt.hist(df["Spending Score (1-100)"])
+plt.title("Spending Score Distribution")
+plt.xlabel("Spending Score")
+plt.ylabel("Count")
+plt.show()
+
+
+plt.scatter(df["Annual Income (k$)"], df["Spending Score (1-100)"])
+plt.title("Customer Segmentation")
+plt.xlabel("Annual Income")
+plt.ylabel("Spending Score")
+plt.show()
